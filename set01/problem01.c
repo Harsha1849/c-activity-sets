@@ -1,6 +1,7 @@
 // 1. Write a C program to print your name.
 #include<stdio.h>
-int main();
+int main()
 {
-    printf{"my name is harsha"};
+    printf("my name is harsha");
+    return 0;
 }
