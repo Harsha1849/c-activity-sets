@@ -1,0 +1,12 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set01> gdb .\problem07.exe
+GNU gdb (GDB) 7.6.1
+[New Thread 20704.0x1d00]
+
+Breakpoint 1, main () at problem07.c:28
+28          int n = input_n();
+(gdb) quit
+A debugging session is active.
+
+        Inferior 1 [process 20704] will be killed.
+
+Quit anyway? (y or n) n
