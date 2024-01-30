@@ -1,0 +1,31 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set01> gdb .\problem04.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set01\problem04.exe...done.
+(gdb) l
+14      void output(int a, int b, int sum) 
+15      {
+16         printf("Sum of %d and %d is %d\n", a, b, sum);
+17      }
+18
+19      int main()
+20      {
+21         int num1, num2, result;
+22
+23         input(&num1, &num2);
+(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set01/.\problem04.exe 
+[New Thread 10892.0x4d48]
+[New Thread 10892.0x4db4]
+Enter two numbers: 5
+3
+Sum of 5 and 3 is 8
+[Inferior 1 (process 10892) exited normally]
+(gdb) quit
