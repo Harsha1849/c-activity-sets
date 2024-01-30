@@ -1,25 +1,28 @@
-#include<stdio.h>
-int input()
+#include <stdio.h>
+
+void input(int *a, int *b) 
 {
-    int num;
-    printf("enter a number:");
-    scanf("%d",&num);
-    return num;
+   printf("Enter two numbers: ");
+   scanf("%d %d", a, b);
 }
-void add(int a, int b, int *sum)
+
+void add(int a, int b, int *sum) 
 {
-    *sum=a+b;
+   *sum = a + b;
 }
-void ouptut(int a, int b, int sum)
+
+void output(int a, int b, int sum) 
 {
-    printf("the sum of %d,%d is %d \n", a,b,sum);
+   printf("Sum of %d and %d is %d\n", a, b, sum);
 }
-int main()
+
+int main() 
 {
-    int a,b,sum;
-    a=input();
-    b=input();
-    add(a,b,&sum);
-    output(a,b,sum);
-    return 0;
+   int num1, num2, result;
+
+   input(&num1, &num2);  
+   add(num1, num2, &result); 
+   output(num1, num2, result);  
+
+   return 0;
 }
