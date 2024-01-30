@@ -1,0 +1,29 @@
+(gdb) r
+The program being debugged has been started already.
+Start it from the beginning? (y or n) n
+Program not restarted.
+(gdb) info b
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep n   0x00401466 in input at problem05.c:5  
+        breakpoint already hit 1 time
+(gdb) disable 1
+(gdb) info b
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep n   0x00401466 in input at problem05.c:5  
+        breakpoint already hit 1 time
+(gdb) enable 1
+(gdb) info b
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x00401466 in input at problem05.c:5  
+        breakpoint already hit 1 time
+(gdb) r
+The program being debugged has been started already.
+Start it from the beginning? (y or n) n
+Program not restarted.
+(gdb) print result
+No symbol "result" in current context.
+(gdb) n
+enter a number:6            scanf("%d",&num);
+(gdb) step
+finish                             
+7           return num;
