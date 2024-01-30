@@ -1,0 +1,42 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set01> gdb .\problem01.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.    
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set01\problem01.exe...done.
+(gdb) l
+1       // 1. Write a C program to print your name.
+2       #include<stdio.h>
+3       int main()
+4       {
+5           printf("my name is harsha");
+6           return 0;
+7       }(gdb) b 5
+Breakpoint 1 at 0x40146e: file problem01.c, line 5.
+(gdb) info b
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0040146e in main at problem01.c:5   
+(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set01/.\problem01.exe
+[New Thread 16652.0x4af0]
+[New Thread 16652.0xcd0]
+
+Breakpoint 1, main () at problem01.c:5
+5           printf("my name is harsha");
+(gdb) print result
+No symbol "result" in current context.
+(gdb) finish
+"finish" not meaningful in the outermost frame.
+(gdb) q
+A debugging session is active.
+
+        Inferior 1 [process 16652] will be killed.
+
+Quit anyway? (y or n) y
+
+error return ../../gdb-7.6.1/gdb/windows-nat.c:1275 was 5
