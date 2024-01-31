@@ -1,0 +1,33 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set01> gdb .\problem11.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.    
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set01\problem11.exe...done.
+(gdb) l
+warning: Source file is more recent than executable.
+24      }
+25
+26      void output(Complex a, Complex b, Complex sum)
+27      {
+28          printf("sum is (%f,%fi)", sum.real,sum.imaginary);        
+29      }
+30
+31      int main()
+32      {
+33          Complex num1=input_complex();
+(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set01/.\problem11.exe
+[New Thread 9328.0x3f70]
+[New Thread 9328.0x2498]
+enter the real part:4
+enter the imaginary part:5
+enter the real part:3
+enter the imaginary part:6
+sum is (7.000000,11.000000i)[Inferior 1 (process 9328) exited normally]
+(gdb) q
