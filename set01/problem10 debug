@@ -1,0 +1,31 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set01> gdb .\problem10.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set01\problem10.exe...done.
+(gdb) l
+30          }
+31          else
+32          {
+33              printf("%s is greater than %s\n",string1, string2);   
+34          }
+35      }
+36      int main()
+37      {
+38          char string1[100],string2[100];
+39          input_strings(string1, string2);
+(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set01/.\problem10.exe
+[New Thread 19900.0x1d04]
+[New Thread 19900.0x3dac]
+enter first string 3
+enter second string4
+3 is lesser than 4
+[Inferior 1 (process 19900) exited normally]
+(gdb) q
