@@ -1,0 +1,29 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set01> gdb .\problem09.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.    
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set01\problem09.exe...done.
+(gdb) l
+1       #include<stdio.h>
+2
+3       float input();
+4       float square_root(float n);
+5       void output(float n, float sqrroot);
+6
+7       int main()
+8       {
+9           float number, sqrt;
+10          number=input();
+(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set01/.\problem09.exe
+[New Thread 17244.0xa60]
+[New Thread 17244.0x30ac]
+enter a number:81
+square root of 81.0 is 9.0[Inferior 1 (process 17244) exited normally]
+(gdb) q
