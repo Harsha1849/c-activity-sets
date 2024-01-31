@@ -1,0 +1,33 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set01> gdb .\problem08.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.    
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set01\problem08.exe...done.
+(gdb) l
+24
+25      void output(int n, int a[n], int sum) {
+26         printf("The sum of the following %d numbers is %d:\n", n, sum);
+27         for (int i = 0; i < n; i++) {
+28             printf("%d ", a[i]);
+29         }
+30         printf("\n");
+31      }
+32
+33      int main() {
+(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set01/.\problem08.exe
+[New Thread 9564.0x3eb4]
+[New Thread 9564.0x8ec]
+Enter the number of elements: 2
+Enter 2 numbers:
+3 5
+The sum of the following 2 numbers is 8:
+3 5
+[Inferior 1 (process 9564) exited normally]
+(gdb) q
