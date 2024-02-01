@@ -1,0 +1,38 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set02> gdb .\problem04.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set02\problem04.exe...done.
+(gdb) l
+32              }
+33          }
+34          return sum;
+35      }
+36      void output(int sum)
+37      {
+38          printf("sum of composite nos in the array is:%d",sum);
+39      }
+40      int main()
+41      {
+(gdb) l
+42          int n=input_array_size();
+43          int a[n];
+44          input_array(n,a);
+45          int sum=sum_composite_numbers(n,a);
+46          output(sum);
+47          return 0;
+48      }(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set02/.\problem04.exe
+[New Thread 7900.0x29a0]
+[New Thread 7900.0x25a4]
+enter array size:5
+enter 5 numbers:
+4 7 9 3 5
+sum of composite nos in the array is:13[Inferior 1 (process 7900) exited normally]
+(gdb) q
