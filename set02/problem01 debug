@@ -1,0 +1,36 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set02> gdb .\problem01.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set02\problem01.exe...done.
+(gdb) l
+13      }
+14      void output(float base, float height, float area)
+15      {
+16          printf("the area of triangle with base %.2f and height %.2f is %.2f\n",base,height,area);
+17      }
+18      int main()
+19      {
+20          float base,height,area;
+21
+22          input(&base,&height);
+(gdb) l
+23          find_area(base, height, &area);
+24          output(base, height, area);
+25
+26          return 0;
+27      }(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set02/.\problem01.exe
+[New Thread 15000.0x2f0c]
+[New Thread 15000.0x3b00]
+enter the base of traingle:4
+enter the height of traingle:6
+the area of triangle with base 4.00 and height 6.00 is 12.00
+[Inferior 1 (process 15000) exited normally]
+(gdb) q
