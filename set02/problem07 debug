@@ -1,0 +1,35 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set02> gdb .\problem07.exe  
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set02\problem07.exe...done.
+(gdb) l
+18      {
+19          t->area=0.5*t->base*t->altitude;
+20      }
+21      void output(Triangle t)
+22      {
+23          printf("area of triangle=%.2f square units\n",t.area);
+24      }
+25      int main()
+26      {
+27          Triangle t=input_triangle();
+(gdb) l
+28          find_area(&t);
+29          output(t);
+30          return 0;
+31      }
+(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set02/.\problem07.exe
+[New Thread 10388.0x403c]
+[New Thread 10388.0x38c4]
+enter base of traingle:4
+enter altitude of traingle:6
+area of triangle=12.00 square units
+[Inferior 1 (process 10388) exited normally]
