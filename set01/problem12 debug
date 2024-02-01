@@ -1,0 +1,38 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set01> gdb .\problem12.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set01\problem12.exe...done.
+(gdb) l
+52          return sum;
+53      }
+54
+55      void output(int n, Complex c[n], Complex result)
+56      {
+57          printf("sum:(%f,%fi)\n",result.real,result.imaginary);
+58      }
+59
+60      int main()
+61      {
+(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set01/.\problem12.exe
+[New Thread 14208.0x4c44]
+[New Thread 14208.0x5138]
+enter the number of complex numbers:3
+enter the real part:2
+enter the imaginary part:5
+enter the real part:4
+enter the imaginary part:6
+enter the real part:8
+enter the imaginary part:9
+enter the real part:1
+enter the imaginary part:7
+sum:(14.000000,20.000000i)
+[Inferior 1 (process 14208) exited normally]
+(gdb) q
