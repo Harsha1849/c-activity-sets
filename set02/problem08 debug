@@ -1,0 +1,46 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set02> gdb .\problem08.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set02\problem08.exe...done.
+(gdb) l
+60      void output(int n, Triangle t[n],Triangle smallest)
+61      {
+62          printf("triangle with smallest area:");
+63          printf("Base: %.2f\n", smallest.base);
+64          printf("Altitude: %.2f\n", smallest.altitude);
+65          printf("Area: %.2f square units\n", smallest.area);
+66      }
+67
+68      int main()
+69      {
+(gdb) l
+70          int n=input_n();
+71          Triangle triangles[n];
+72          input_n_triangles(n,triangles);
+73          find_n_areas(n,triangles);
+74          Triangle smallest=find_smallest_triangle(n,triangles);
+75          output(n,triangles,smallest);
+76          return 0;
+77      }(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set02/.\problem08.exe
+[New Thread 6476.0x82c]
+[New Thread 6476.0xc44]
+enter no of traingles:2
+enter details of traingle 1:
+enter  base of triangle:4
+enter  altitude of triangle:6
+enter details of traingle 2:
+enter  base of triangle:8
+enter  altitude of triangle:12
+triangle with smallest area:Base: 4.00
+Altitude: 6.00
+Area: 12.00 square units
+[Inferior 1 (process 6476) exited normally]
+(gdb) q
