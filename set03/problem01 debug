@@ -1,0 +1,35 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set03> gdb .\problem01.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set03\problem01.exe...done.
+(gdb) l
+14      }
+15
+16      void output(float x1, float y1, float x2, float y2, float distance)
+17      {
+18          printf("the distance bw the points (%.2f,%.2f) and (%.2f,%.2f) is %.2f",x1,y1,x2,y2,distance);
+19      }
+20      int main()
+21      {
+22          float x1,y1,x2,y2,distance;
+23          input(&x1,&y1,&x2,&y2);
+(gdb) l
+24          distance=find_distance(x1,y1,x2,y2);
+25          output(x1,y1,x2,y2,distance);
+26          return 0;
+27      }(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set03/.\problem01.exe
+[New Thread 24336.0x5b30]
+[New Thread 24336.0x1c3c]
+enter coordinates of first point(x1,y1)3,4
+enter coordinates of seconf point(x2,y2)the distance bw the points (3.00,0.00) and (0.00,0.00) is 3.00[Inferior 1 (process 24336) exited normally]
+(gdb) 5,6
+Undefined command: "5".  Try "help".
+(gdb) q
