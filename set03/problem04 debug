@@ -1,0 +1,60 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set03> gdb .\problem04.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set03\problem04.exe...done.
+(gdb) l
+1       #include<stdio.h>
+2       int input();
+3       int find_fibo(int n);
+4       void output(int n, int fibo);
+5
+6       int main()
+7       {
+8           int n,fibo;
+9           n=input();
+10          fibo=find_fibo(n);
+(gdb) l
+11          output(n,fibo);
+12          return 0;
+13      }
+14
+15      int input()
+16      {
+17          int n;
+18          printf("enter the value of n to find nth number in fibo");
+19          scanf("%d",&n);
+20          return n;
+(gdb) l
+21      }
+22      int find_fibo(int n)
+23      {
+24          if(n<=1)
+25          return n;
+26          int a=0,b=1,fibo;
+27          for (int i=2;i<=n;i++)
+28          {
+29              fibo=a+b;
+30              a=b;
+(gdb) l
+31              b=fibo;
+32          }
+33          return fibo;
+34      }
+35      void output(int n, int fibo)
+36      {
+37          printf("the %dth number in fivo is: %d\n",n,fibo);
+38      }    (gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set03/.\problem04.exe
+[New Thread 18680.0x465c]
+[New Thread 18680.0x75c]
+enter the value of n to find nth number in fibo4
+the 4th number in fivo is: 3
+[Inferior 1 (process 18680) exited normally]
+(gdb) q
