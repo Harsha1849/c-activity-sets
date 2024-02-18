@@ -1,0 +1,97 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set03> gdb .\problem08.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set03\problem08.exe...done.
+(gdb) l
+16      int input_polygon(Polygon *p);
+17      float find_distance(Point a, Point b);
+18      void find_perimeter(Polygon* p);
+19      void output(Polygon p);
+20
+21      int main()
+22      {
+23          Polygon poly;
+24          int n;
+25          n=input_n();
+(gdb) l
+26          poly.sides=n;
+27          input_polygon(&poly);
+28          find_perimeter(&poly);
+29          output(poly);
+30          return 0;
+31      }
+32
+33      int input_n(){
+34          int n;
+35          printf("enter no of sides:");
+(gdb) l 
+36          scanf("%d",&n);
+37          return n;
+38      }
+39
+40      Point input_point(char *prompt_msg)
+41      {
+42          Point p;
+43          printf("%s\n",prompt_msg);
+44          printf("enter x coordinate:");
+45          scanf("%f",&p.x);
+(gdb) l
+46          printf("enter y coordinate:");
+47          scanf("%f",&p.y);
+48          return p;
+49      }
+50
+51      int input_polygon(Polygon *p)
+52      {
+53          int i;
+54          for(i=0;i<p->sides;i++)
+55          {
+(gdb) l
+56              char prompt_msg[50];
+57              sprintf(prompt_msg,"enter coordinates for point %d:",i + 1);
+58              p->p[i]=input_point(prompt_msg);
+59          }
+60          return 0;
+61      }
+62
+63      float find_distance(Point a, Point b){
+64          return sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
+65      }
+(gdb) l
+66
+67      void find_perimeter(Polygon* p){
+68          int i;
+69          p->perimeter=0;
+70          for(i=0;i<p->sides;i++){
+71              int next=(i+1)%p->sides;
+72              p->perimeter += find_distance(p->p[i],p->p[next]);
+73          }
+74      }
+75
+(gdb) l
+76      void output(Polygon p){
+77          printf("perimeter of polygon with %d sides is %.2f\n",p.sides,p.perimeter);
+78      }(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set03/.\problem08.exe
+[New Thread 9728.0x4d80]
+[New Thread 9728.0x1b04]
+enter no of sides:3
+enter coordinates for point 1:
+enter x coordinate:2
+enter y coordinate:4
+enter coordinates for point 2:
+enter x coordinate:5
+enter y coordinate:6
+enter coordinates for point 3:
+enter x coordinate:7
+enter y coordinate:8
+perimeter of polygon with 3 sides is 12.84
+[Inferior 1 (process 9728) exited normally]
+(gdb) q
