@@ -48,6 +48,6 @@ void find_length(Line *l) {
 }
 
 void output(Line l){
-    printf("length of line bw (&.2f,%.2f) and (%.2f,%.2f) is %.2f\n",
+    printf("length of line bw (%.2f,%.2f) and (%.2f,%.2f) is %.2f\n",
     l.p1.x,l.p1.y,l.p2.x,l.p2.y,l.distance);
 }
