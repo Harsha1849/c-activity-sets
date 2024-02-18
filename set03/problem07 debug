@@ -1,0 +1,71 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set03> gdb .\problem07.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set03\problem07.exe...done.
+(gdb) l
+11      } Line;
+12
+13      Point input_point();
+14      Line input_line();
+15      void find_length(Line *l);
+16      void output(Line l);
+17
+18      int main() {
+19          Line line;
+20          line=input_line();
+(gdb) l
+21          find_length(&line);
+22          output(line);
+23          return 0;
+24      }
+25
+26      Point input_point(){
+27          Point p;
+28          printf("enter x coordinate:");
+29          scanf("%f",&p.x);
+30          printf("enter y coordinate:");
+(gdb) l
+31          scanf("%f",&p.y);
+32          return p;
+33      }
+34
+35      Line input_line() {
+36          Line l;
+37          printf("enter coordinates of point 1:\n");
+38          l.p1=input_point();
+39          printf("enter coordinates of point 2:\n");
+40          l.p2=input_point();
+(gdb) l
+41          return l;
+42      }
+43
+44      void find_length(Line *l) {
+45          float dx=l->p2.x - l->p1.x;
+46          float dy=l->p2.y - l->p1.y;
+47          l->distance=sqrt(dx * dx + dy * dy);
+48      }
+49
+50      void output(Line l){
+(gdb) l
+51          printf("length of line bw (%.2f,%.2f) and (%.2f,%.2f) is %.2f\n",
+52          l.p1.x,l.p1.y,l.p2.x,l.p2.y,l.distance);
+53      }(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set03/.\problem07.exe
+[New Thread 16428.0x471c]
+[New Thread 16428.0x3d20]
+enter coordinates of point 1:
+enter x coordinate:2
+enter y coordinate:4
+enter coordinates of point 2:
+enter x coordinate:6
+enter y coordinate:8
+length of line bw (2.00,4.00) and (6.00,8.00) is 5.66
+[Inferior 1 (process 16428) exited normally]
+(gdb) q
