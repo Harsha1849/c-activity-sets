@@ -1,0 +1,93 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set03> gdb .\problem06.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set03\problem06.exe...done.
+(gdb) l
+5       int sub_str_index(char* string, char* substring);
+6       void output(char *string, char *substring, int index);
+7
+8       int main()
+9       {
+10          char main_string[100];
+11          char sub_string[100];
+12          int index;
+13
+14          input_string(main_string, sub_string);
+(gdb) l
+15          index= sub_str_index(main_string,sub_string);
+16          output(main_string,sub_string,index);
+17
+18          return 0;
+19      }
+20
+21      void input_string(char* a, char* b)
+22      {
+23          printf("enter main string:");
+24          scanf("%s",a);
+(gdb) l
+25          printf("enter substring:");
+26          scanf("%s",b);
+27      }
+28
+29      int sub_str_index(char* string, char* substring)
+30      {
+31          int i,j,k;
+32          int string_length=strlen(string);
+33          int sub_length=strlen(substring);
+34
+(gdb) l
+35          for(i=0;i<=string_length-sub_length;i++)
+36          {
+37              for(j=1,k=0;k<sub_length && string[j]==substring[k];j++,k++);
+38              if(k==sub_length)
+39              return i;
+40          }
+41          return -1;
+42      }
+43
+44      void output(char *string, char *substring,int index)
+(gdb) l
+45      {
+46          if(index != -1)
+47          printf("'%s' is found in '%s' at index %d\n",substring,string,index);
+48      else
+49      printf("'%s' is not found in '%s'\n", substring,string);
+50      }(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set03/.\problem06.exe
+[New Thread 8316.0x17d4]
+[New Thread 8316.0x248c]
+enter main string:helloworld
+enter substring:hello
+'hello' is not found in 'helloworld'
+[Inferior 1 (process 8316) exited normally]
+(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set03/.\problem06.exe
+[New Thread 1808.0x2e0c]
+[New Thread 1808.0xc40]
+enter main string:helloworldhello
+enter substring:world
+'world' is not found in 'helloworldhello'
+[Inferior 1 (process 1808) exited normally]
+(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set03/.\problem06.exe 
+[New Thread 8536.0x381c]
+[New Thread 8536.0x4d78]
+enter main string:hello world
+enter substring:'world' is not found in 'hello'
+[Inferior 1 (process 8536) exited normally]
+(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set03/.\problem06.exe
+[New Thread 11836.0x1d54]
+[New Thread 11836.0x1b98]
+enter main string:world
+enter substring:wo
+'wo' is not found in 'world'
+[Inferior 1 (process 11836) exited normally]
+(gdb) q
