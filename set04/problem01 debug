@@ -1,0 +1,58 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set04> gdb .\problem01.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set04\problem01.exe...done.
+(gdb) l
+1       #include<stdio.h>
+2
+3       void input(int *num1, int *den1, int *num2, int *den2);
+4       void add(int num1, int den1, int num2, int den2, int *res_num, int *res_den);
+5       void output(int num1, int den1, int num2, int den2, int res_num, int res_den);
+6
+7       int main()
+8       {
+9           int num1, den1, num2, den2, res_num, res_den;
+10          input(&num1,&den1,&num2,&den2);
+(gdb) l
+11          add(num1,den1,num2,den2,&res_num,&res_den);
+12          output(num1,den1,num2,den2,res_num,res_den);
+13          return 0;
+14      }
+15
+16      void input(int *num1, int *den1, int *num2, int *den2)
+17      {
+18          printf("enter first fraction:");
+19          scanf("%d %d", num1, den1);
+20          printf("enter second fraction:");
+(gdb) l
+21          scanf("%d %d", num2, den2);
+22      }
+23
+24      void add(int num1, int den1, int num2, int den2, int *res_num, int * res_den)
+25      {
+26          *res_num = num1 * den2 + num2 * den1;
+27          *res_den = den1 * den2;
+28      }
+29
+30      void output(int num1, int den1, int num2, int den2, int res_num, int res_den)
+(gdb) l
+31      {
+32          printf("sum of fractions %d/%d and %d/%d = %d/%d\n", num1, den1, num2, den2, res_num, res_den);
+33      }(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set04/.\problem01.exe
+[New Thread 3492.0x1f04]
+[New Thread 3492.0x5134]
+enter first fraction:2
+3
+enter second fraction:4
+6
+sum of fractions 2/3 and 4/6 = 24/18
+[Inferior 1 (process 3492) exited normally]
+(gdb) q
