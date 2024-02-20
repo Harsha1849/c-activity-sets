@@ -1,0 +1,68 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set04> gdb .\problem02.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set04\problem02.exe...done.
+(gdb) l
+4       } Fraction;
+5
+6       void input(Fraction *frac1, Fraction *frac2, Fraction *frac3);
+7       Fraction find_smallest(Fraction frac1, Fraction frac2, Fraction frac3);
+8       void output(Fraction smallest);
+9
+10      int main()
+11      {
+12          Fraction frac1, frac2, frac3, smallest;
+13          input(&frac1,&frac2,&frac3);
+(gdb) l
+14          smallest = find_smallest(frac1,frac2,frac3);
+15          output(smallest);
+16          return 0;
+17      }
+18
+19      void input(Fraction *frac1, Fraction *frac2, Fraction *frac3)
+20      {
+21          printf("enter first fraction:");
+22          scanf("%d %d",&(frac1->num),&(frac1->den));
+23          printf("enter second fraction:");
+(gdb) l
+24          scanf("%d %d",&(frac2->num),&(frac2->den));
+25          printf("enter third fraction:");
+26          scanf("%d %d",&(frac3->num),&(frac3->den));
+27      }
+28
+29      Fraction find_smallest(Fraction frac1, Fraction frac2, Fraction frac3)
+30      {
+31          double value1=(double)frac1.num/frac1.den;
+32          double value2=(double)frac2.num/frac2.den;
+33          double value3=(double)frac3.num/frac3.den;
+(gdb) l
+34          if(value1 <= value2 && value1 <= value3)
+35          return frac1;
+36          else if (value2 <= value1 && value2 <= value3)
+37          return frac2;
+38          else
+39          return frac3;
+40      }
+41
+42      void output(Fraction smallest)
+43      {
+(gdb) l
+44          printf("the smallest fraction is: %d/%d\n",smallest.num, smallest.den);
+45      }(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set04/.\problem02.exe
+[New Thread 7340.0x7cc]
+[New Thread 7340.0x4cb0]
+enter first fraction:2 3
+enter second fraction:4 5
+enter third fraction:6 7
+the smallest fraction is: 2/3
+[Inferior 1 (process 7340) exited normally]
+(gdb)
+(gdb) q 
