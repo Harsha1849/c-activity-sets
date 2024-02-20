@@ -1,0 +1,124 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set04> gdb .\problem08.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set04\problem08.exe...done.
+(gdb) l
+6       int input_n();
+7       Fraction input_fraction();
+8       void input_n_fractions(int n, Fraction f[]);
+9       int find_gcd(int a, int b);
+10      Fraction add_fractions(Fraction f1, Fraction f2);
+11      Fraction add_n_fractions(int n, Fraction f[]);
+12      void output(int n, Fraction f[], Fraction sum);
+13
+14      int main()
+15      {
+(gdb) l
+16          int n;
+17          Fraction sum;
+18          n=input_n();
+19          Fraction fractions[n];
+20          input_n_fractions(n,fractions);
+21          sum=add_n_fractions(n,fractions);
+22          output(n,fractions,sum);
+23          return 0;
+24      }
+25
+(gdb) l
+26      int input_n()
+27      {
+28          int n;
+29          printf("enter no of fractions:");
+30          scanf("%d",&n);
+31          return n;
+32      }
+33      Fraction input_fraction() {
+34          Fraction f;
+35          printf("Enter numerator: ");
+(gdb) l
+36          scanf("%d", &f.num);
+37          printf("Enter denominator: ");
+38          scanf("%d", &f.den);
+39          return f;
+40      }
+41
+42      void input_n_fractions(int n, Fraction f[]) {
+43          printf("Enter %d fractions:\n", n);
+44          for (int i = 0; i < n; i++) {
+45              printf("Fraction %d:\n", i + 1);
+(gdb) l
+46              f[i] = input_fraction();
+47          }
+48      }
+49
+50      int find_gcd(int a, int b) {
+51          while (b != 0) {
+52              int temp = b;
+53              b = a % b;
+54              a = temp;
+55          }
+(gdb) l
+56          return a;
+57      }
+58
+59      Fraction add_fractions(Fraction f1, Fraction f2) {
+60          Fraction sum;
+61          sum.num = f1.num * f2.den + f2.num * f1.den;
+62          sum.den = f1.den * f2.den;
+63          int gcd = find_gcd(sum.num, sum.den);
+64          sum.num /= gcd;
+65          sum.den /= gcd;
+(gdb) l
+66
+67          return sum;
+68      }
+69
+70      Fraction add_n_fractions(int n, Fraction f[]) {
+71          Fraction sum = {0, 1};
+72
+73          for (int i = 0; i < n; i++) {
+74              sum = add_fractions(sum, f[i]);
+75          }
+(gdb) l
+76
+77          return sum;
+78      }
+79
+80      void output(int n, Fraction f[], Fraction sum) {
+81          printf("Sum of %d fractions:\n", n);
+82          for (int i = 0; i < n; i++) {
+83              printf("%d/%d ", f[i].num, f[i].den);
+84              if (i < n - 1)
+85                  printf("+ ");
+(gdb) l
+86          }
+87          printf("= %d/%d\n", sum.num, sum.den);
+88      }(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set04/.\problem08.exe
+[New Thread 9736.0x522c]
+[New Thread 9736.0x439c]
+enter no of fractions:4
+Enter 4 fractions:
+Fraction 1:
+Enter numerator: 2
+Enter denominator: 4
+Fraction 2:
+Enter numerator: 5
+Enter denominator: 9
+Fraction 3:
+Enter numerator: 1
+Enter denominator: 7
+Fraction 4:
+Enter numerator: 3
+Enter denominator: 8
+Sum of 4 fractions:
+2/4 + 5/9 + 1/7 + 3/8 = 793/504
+[Inferior 1 (process 9736) exited normally]
+(gdb) q
