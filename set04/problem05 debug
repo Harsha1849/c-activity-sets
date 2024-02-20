@@ -1,0 +1,81 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set04> gdb .\problem05.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set04\problem05.exe...done.
+(gdb) l
+1       #include<stdio.h>
+2       int input_size();
+3       void input_array(int n, int a[]);
+4       int find_largest_index(int n, int a[]);
+5       void output(int index);
+6
+7       int main()
+8       {
+9           int n, index;
+10          n=input_size();
+(gdb) l
+11          int array[n];
+12          input_array(n,array);
+13          index=find_largest_index(n,array);
+14          output(index);
+15          return 0;
+16      }
+17
+18      int input_size()
+19      {
+20          int size;
+(gdb) l
+21          printf("enter array size:");
+22          scanf("%d",&size);
+23          return size;
+24      }
+25
+26      void input_array(int n, int a[])
+27      {
+28          printf("enter elements of array:\n");
+29          for(int i=0;i<n;i++)
+30          {
+(gdb) l
+31              printf("element %d: ",i+1);
+32              scanf("%d",&a[i]);
+33          }
+34      }
+35
+36      int find_largest_index(int n, int a[])
+37      {
+38          int max_index=0;
+39          for(int i=1;i<n;i++)
+40          {
+(gdb) l
+41              if(a[i]>a[max_index])
+42              {
+43                  max_index=i;
+44              }
+45          }
+46          return max_index;
+47      }
+48
+49      void output(int index)
+50      {
+(gdb) l
+51          printf("index of largest number in array:%d\n",index);
+52      }(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set04/.\problem05.exe
+[New Thread 11096.0x3094]
+[New Thread 11096.0x1c60]
+enter array size:4
+enter elements of array:
+element 1: 2
+element 2: 9
+element 3: 1
+element 4: 7
+index of largest number in array:1
+[Inferior 1 (process 11096) exited normally]
+(gdb) q
