@@ -1,0 +1,107 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set04> gdb .\problem04.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set04\problem04.exe...done.
+(gdb) l
+1       #include<stdio.h>
+2       int input_degree();
+3       void input_coefficients(int n, float a[]);
+4       float input_x();
+5       float evaluate_polynomial(int n, float a[], float x);
+6       void output(int n, float a[], float x, float result);
+7
+8       int main()
+9       {
+10          int n;
+(gdb) l
+11          float x, result;
+12          n=input_degree();
+13          float coefficients[n];
+14          input_coefficients(n, coefficients);
+15          x=input_x();
+16          result=evaluate_polynomial(n, coefficients,x);
+17          output(n, coefficients, x, result);
+18          return 0;
+19      }
+20
+(gdb) l
+21      int input_degree()
+22      {
+23          int degree;
+24          printf("enter degree of polynomial:");
+25          scanf("%d",&degree);
+26          return degree;
+27      }
+28
+29      void input_coefficients(int n, float a[])
+30      {
+(gdb) l
+31          printf("enter coefficients of polynomial(highest to lowest):\n");
+32          for(int i=0;i<=n;i++)
+33          {
+34              printf("coefficients of x^%d:",n-i);
+35              scanf("%f",&a[i]);
+36          }
+37      }
+38
+39      float input_x()
+40      {
+(gdb) l
+41          float x;
+42          printf("enter value of x:");
+43          scanf("%f",&x);
+44      }
+45
+46      float evaluate_polynomial(int n, float a[],float x)
+47      {
+48          float result = a[0];
+49          for(int i=1;i<=n;++i)
+50          {
+(gdb) l
+51              result=result*x+a[i];
+52          }
+53          return result;
+54      }
+55
+56      void output(int n, float a[],float x, float result)
+57      {
+58          printf("polynomial:");
+59          for(int i=0;i<=n;++i)
+60          {
+(gdb) l
+61              if(i<n)
+62              printf("%.2fx^%d +",a[i],n-i);
+63              else
+64              printf("%.2f",a[i]);
+65          }
+66          printf("evaluated at x= %.2f is: %.2f\n",x,result);
+67      }(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set04/.\problem04.exe
+[New Thread 6664.0x2b30]
+[New Thread 6664.0x50e4]
+enter degree of polynomial:1
+enter coefficients of polynomial(highest to lowest):
+coefficients of x^1:1 
+coefficients of x^0:1
+enter value of x:1
+polynomial:1.00x^1 +1.00evaluated at x= 1.#R is: 1.#R
+[Inferior 1 (process 6664) exited normally]
+(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set04/.\problem04.exe 
+[New Thread 19288.0x4728]
+[New Thread 19288.0x513c]
+enter degree of polynomial:1
+enter coefficients of polynomial(highest to lowest):
+coefficients of x^1:1
+coefficients of x^0:1
+enter value of x:
+1
+polynomial:1.00x^1 +1.00evaluated at x= 1.#R is: 1.#R
+[Inferior 1 (process 19288) exited normally]
