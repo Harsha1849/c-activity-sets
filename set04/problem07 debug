@@ -1,0 +1,84 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set04> gdb .\problem07.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set04\problem07.exe...done.
+(gdb) l
+5
+6       Fraction input_fraction();
+7       int find_gcd(int a, int b);
+8       Fraction add_fractions(Fraction f1, Fraction f2);
+9       void output(Fraction f1, Fraction f2, Fraction sum);
+10
+11      int main()
+12      {
+13       Fraction f1,f2,sum;
+14       printf("enter first fraction:\n");
+(gdb) l
+15       f1=input_fraction();
+16       printf("enter second fraction:\n");
+17       f2=input_fraction();
+18       sum=add_fractions(f1,f2);
+19       output(f1,f2,sum);
+20       return 0;
+21      }
+22
+23      Fraction input_fraction()
+24      {
+(gdb) l
+25          Fraction f;
+26          printf("enter numerator:");
+27          scanf("%d",&f.num);
+28          printf("enter denominator:");
+29          scanf("%d",&f.den);
+30          return f;
+31      }
+32
+33      int find_gcd(int a, int b)
+34      {
+(gdb) l
+35          while(b != 0)
+36          {
+37              int temp=b;
+38              b=a%b;
+39              a=temp;
+40          }
+41          return a;
+42      }
+43
+44      Fraction add_fractions(Fraction f1, Fraction f2)
+(gdb) l
+45      {
+46          Fraction sum;
+47          sum.num=f1.num * f2.den + f2.num * f1.den;
+48          sum.den=f1.den * f2.den;
+49
+50          int gcd=find_gcd(sum.num,sum.den);
+51          sum.num /= gcd;
+52          sum.den /= gcd;
+53          return sum;
+54      }
+(gdb) l
+55
+56      void output(Fraction f1, Fraction f2, Fraction sum)
+57      {
+58          printf("sum of fraction %d/%d and %d/%d = %d/%d\n",f1.num,f1.den,f2.num,f2.den,sum.num,sum.den);
+59      }(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set04/.\problem07.exe
+[New Thread 15612.0x24ac]
+[New Thread 15612.0x4e14]
+enter first fraction:
+enter numerator:4
+enter denominator:2
+enter second fraction:
+enter numerator:6
+enter denominator:3
+sum of fraction 4/2 and 6/3 = 4/1
+[Inferior 1 (process 15612) exited normally]
+(gdb) q
