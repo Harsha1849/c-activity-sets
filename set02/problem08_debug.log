@@ -1,0 +1,17 @@
++l
+60	void output(int n, Triangle t[n],Triangle smallest)
+61	{
+62	    printf("triangle with smallest area:");
+63	    printf("Base: %.2f\n", smallest.base);
+64	    printf("Altitude: %.2f\n", smallest.altitude);
+65	    printf("Area: %.2f square units\n", smallest.area);
+66	}
+67	
+68	int main()
+69	{
++r
+Starting program: c:\Users\Harsha\c-activity-sets\c-activity-sets\set02/./problem08.exe 
+[New Thread 16192.0x1f14]
+[New Thread 16192.0x1090]
+[Inferior 1 (process 16192) exited normally]
++q
