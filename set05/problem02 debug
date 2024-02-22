@@ -1,0 +1,63 @@
+PS C:\Users\Harsha\c-activity-sets\c-activity-sets\set05> gdb .\problem02.exe 
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\Harsha\c-activity-sets\c-activity-sets\set05\problem02.exe...done.
+(gdb) l
+2       #include<math.h>
+3       #define PI 3.1415926
+4
+5       void input_camel_details(float *radius, float *height, float *length);
+6       float find_weight(float radius, float height, float length);
+7       void output(float radius, float height, float length, float weight);
+8
+9       int main(){
+10          float radius, height, length, weight;
+11          input_camel_details(&radius,&height,&length);
+(gdb) l
+12          weight=find_weight(radius, height, length);
+13          output(radius,height,length,weight);
+14          return 0;
+15      }
+16
+17      void input_camel_details(float *radius, float *height, float *lenght){
+18          printf("enter camel radius:");
+19          scanf("%f", radius);
+20          printf("enter camel height:");
+21          scanf("%f", height);
+(gdb) l
+22          printf("enter camel length:");
+23          scanf("%f",  lenght);
+24      }
+25
+26      float find_weight(float radius, float height, float length)
+27      {
+28          return PI * pow(radius,3) * sqrt(height*length);
+29      }
+30
+31      void output(float radius, float height, float length, float weight)
+(gdb) l
+32      {
+33          printf("stomach radius: %.2f\n", radius);
+34          printf("height: %.2f\n", height);
+35          printf("length: %.2f\n", length);
+36          printf("weight: %.2f\n", weight);
+37      }(gdb) r
+Starting program: C:\Users\Harsha\c-activity-sets\c-activity-sets\set05/.\problem02.exe
+[New Thread 17652.0x524c]
+[New Thread 17652.0x1978]
+enter camel radius:47.5
+enter camel height:33
+enter camel length:81.3
+stomach radius: 47.50
+height: 33.00
+length: 81.30
+weight: 17439456.00
+[Inferior 1 (process 17652) exited normally]
+(gdb) q
