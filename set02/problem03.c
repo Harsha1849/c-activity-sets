@@ -23,7 +23,7 @@ int is_composite(int n)
     return 0;
 }
 
-void output(int result, int n)
+void output(int n, int result)
 {
     if(result)
     {
