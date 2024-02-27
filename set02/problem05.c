@@ -12,7 +12,7 @@ int find_gcd(int a, int b)
     {
         int temp=b;
         b=a%b;
-        temp=a;
+        a=temp;
     }
     return a;
 }
