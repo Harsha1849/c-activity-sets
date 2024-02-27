@@ -2,7 +2,7 @@
 int input()
 {
     int num;
-    printf("enter a number:");
+    printf("enter the number:");
     scanf("%d",&num);
     return num;
 }
@@ -12,19 +12,19 @@ int find_gcd(int a, int b)
     {
         int temp=b;
         b=a%b;
-        a=temp;
+        temp=a;
     }
     return a;
 }
 void output(int a, int b, int gcd)
 {
-    printf("GCD of %d and %d is %d\n",a,b,gcd);
+    printf("the gcd of %d, %d is %d.\n",a,b,gcd);
 }
 int main()
 {
     int num1=input();
     int num2=input();
     int gcd=find_gcd(num1,num2);
-    output(num1, num2, gcd);
+    output(num1,num2,gcd);
     return 0;
 }
