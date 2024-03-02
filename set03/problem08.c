@@ -60,11 +60,11 @@ int input_polygon(Polygon *p)
     return 0;
 }
 
-float find_distance(Point a, Point b){
+float find_distance(Point a, Point b) {
     return sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
 }
 
-void find_perimeter(Polygon* p){
+void find_perimeter(Polygon* p) {
     int i;
     p->perimeter=0;
     for(i=0;i<p->sides;i++){
@@ -73,6 +73,6 @@ void find_perimeter(Polygon* p){
     }
 }
 
-void output(Polygon p){
+void output(Polygon p) {
     printf("perimeter of polygon with %d sides is %.2f\n",p.sides,p.perimeter);
 }
